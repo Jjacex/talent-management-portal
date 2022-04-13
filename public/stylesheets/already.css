@@ -1,0 +1,17 @@
+#already_container{   
+    justify-content: left;
+    align-items: center;
+    padding: 10px;
+}
+
+#already_container h1{
+    font-family: 'Arsenal', sans-serif;
+    color:#E51636;
+    font-size: 1.5rem;
+}
+
+#already_container p{
+    font-family: 'Arima Madurai', cursive;
+    font-size:1.25rem;
+    margin: 10px 0px 0px 0px;
+}

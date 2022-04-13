@@ -1,0 +1,763 @@
+<section id="view_candidates_container">
+    <% candidateList.forEach(candidate => { %>
+        <%if (candidate.status == 'new'){%>
+            <div class="candidate_container shadow_card">
+                <div class="basic_info_container">
+                    <div class="candidate_details_container">
+                        <h1 class="candidate_title"><%=candidate.firstName%> <%=candidate.lastName%></h1>
+                        <p class="candidate_detail"><%=candidate.email%></p>
+                        <p class="candidate_detail"><%=candidate.phone%></p>
+                    </div>
+                    <div class='candidate_button_container'>
+                        <button onclick=showMoreInfo(this) class="shadow_card">More Info</button>
+                    </div>
+                </div>
+
+                <div class="more_info_container">
+                    <div class="interview_toggle_container">
+                        <h1 class="shadow_card" onclick="toggleInterview(this)">Phone Interview</h1>
+                        <h1 class="shadow_card" onclick="toggleInterview(this)">F2F Interview</h1>
+                        <h1 class="shadow_card" onclick="toggleInterview(this)">Final Interview</h1>
+                    </div>
+                    <form action="/user/home/phoneInterview/<%=candidate._id%>" method="POST" class="phone_interview_form">
+                        <div class="form_title">
+                            <h1>Phone Interview</h1>
+                        </div>
+                        <div class="promise_item">
+                            <label for="phone_valued">We Are Valued</label>
+                            <%if (candidate.phoneValued){%>
+                                <textarea type="text" rows="5" name="phone_valued"><%=candidate.phoneValued%></textarea>
+                            <%} else {%>
+                                <textarea type="text" rows="5" name="phone_valued" ></textarea>
+                            <%}%>
+                            <label for="phone_valued_grade">We Are Valued Grade</label>
+                            <select name="phone_valued_grade" id="phone_valued_grade">
+
+                                <% if (candidate.phoneValuedGrade) { %>
+                                    <option value=<%=candidate.phoneValuedGrade%>><%=candidate.phoneValuedGrade%></option>
+                                <% } else { %>
+                                    <option value=""></option>
+                                <% } %>
+
+                                <% if (candidate.phoneValuedGrade == "A") { %>
+                                <% }  else  { %>
+                                    <option value="A">A</option>
+                                <% } %>
+
+                                <% if (candidate.phoneValuedGrade == "B") { %>
+                                <% }  else  { %>
+                                    <option value="B">B</option>
+                                <% } %>
+
+                                <% if (candidate.phoneValuedGrade == "C") { %>                                   
+                                <% }  else  { %>
+                                    <option value="C">C</option>
+                                <% } %>
+
+                                <% if (candidate.phoneValuedGrade == "D") { %>
+                                <% }  else  { %>
+                                    <option value="D">D</option>
+                                <% } %>
+                                
+                                <% if (candidate.phoneValuedGrade == "F") { %>
+                                <% }  else  { %>
+                                    <option value="F">F</option>
+                                <% } %>
+
+                            </select>
+                        </div>
+
+                        <div class="promise_item">
+                            <label for="phone_one">We Are One</label>
+                            <%if (candidate.phoneOne){%>
+                                <textarea type="text" rows="5" name="phone_one"><%=candidate.phoneOne%></textarea>
+                            <%} else {%>
+                                <textarea type="text" rows="5" name="phone_one" ></textarea>
+                            <%}%>
+                            <label for="phone_one_grade">We Are One Grade</label>
+                            <select name="phone_one_grade" id="phone_one_grade">
+
+                                <% if (candidate.phoneOneGrade) { %>
+                                    <option value=<%=candidate.phoneOneGrade%>><%=candidate.phoneOneGrade%></option>
+                                <% } else { %>
+                                    <option value=""></option>
+                                <% } %>
+
+                                <% if (candidate.phoneOneGrade == "A") { %>
+                                <% }  else  { %>
+                                    <option value="A">A</option>
+                                <% } %>
+
+                                <% if (candidate.phoneOneGrade == "B") { %>
+                                <% }  else  { %>
+                                    <option value="B">B</option>
+                                <% } %>
+
+                                <% if (candidate.phoneOneGrade == "C") { %>                                   
+                                <% }  else  { %>
+                                    <option value="C">C</option>
+                                <% } %>
+
+                                <% if (candidate.phoneOneGrade == "D") { %>
+                                <% }  else  { %>
+                                    <option value="D">D</option>
+                                <% } %>
+                                
+                                <% if (candidate.phoneOneGrade == "F") { %>
+                                <% }  else  { %>
+                                    <option value="F">F</option>
+                                <% } %>
+
+                            </select>
+                        </div>
+
+                        <div class="promise_item">
+                            <label for="phone_excellent">We Are Excellent</label>
+                            <%if (candidate.phoneExcellent){%>
+                                <textarea type="text" rows="5" name="phone_excellent"><%=candidate.phoneExcellent%></textarea>
+                            <%} else {%>
+                                <textarea type="text" rows="5" name="phone_excellent" ></textarea>
+                            <%}%>
+                            <label for="phone_excellent_grade">We Are Excellent Grade</label>
+                            <select name="phone_excellent_grade" id="phone_excellent_grade">
+
+                                <% if (candidate.phoneExcellentGrade) { %>
+                                    <option value=<%=candidate.phoneExcellentGrade%>><%=candidate.phoneExcellentGrade%></option>
+                                <% } else { %>
+                                    <option value=""></option>
+                                <% } %>
+
+                                <% if (candidate.phoneExcellentGrade == "A") { %>
+                                <% }  else  { %>
+                                    <option value="A">A</option>
+                                <% } %>
+
+                                <% if (candidate.phoneExcellentGrade == "B") { %>
+                                <% }  else  { %>
+                                    <option value="B">B</option>
+                                <% } %>
+
+                                <% if (candidate.phoneExcellentGrade == "C") { %>                                   
+                                <% }  else  { %>
+                                    <option value="C">C</option>
+                                <% } %>
+
+                                <% if (candidate.phoneExcellentGrade == "D") { %>
+                                <% }  else  { %>
+                                    <option value="D">D</option>
+                                <% } %>
+                                
+                                <% if (candidate.phoneExcellentGrade == "F") { %>
+                                <% }  else  { %>
+                                    <option value="F">F</option>
+                                <% } %>
+
+                            </select>
+                        </div>
+
+
+                        <div class="promise_item">
+                            <label for="phone_proud">We Are Proud</label>
+                            <%if (candidate.phoneProud){%>
+                                <textarea type="text" rows="5" name="phone_proud"><%=candidate.phoneProud%></textarea>
+                            <%} else {%>
+                                <textarea type="text" rows="5" name="phone_proud" ></textarea>
+                            <%}%>
+                            <label for="phone_proud_grade">We Are Proud Grade</label>
+                            <select name="phone_proud_grade" id="phone_proud_grade">
+
+                                <% if (candidate.phoneProudGrade) { %>
+                                    <option value=<%=candidate.phoneProudGrade%>><%=candidate.phoneProudGrade%></option>
+                                <% } else { %>
+                                    <option value=""></option>
+                                <% } %>
+
+                                <% if (candidate.phoneProudGrade == "A") { %>
+                                <% }  else  { %>
+                                    <option value="A">A</option>
+                                <% } %>
+
+                                <% if (candidate.phoneProudGrade == "B") { %>
+                                <% }  else  { %>
+                                    <option value="B">B</option>
+                                <% } %>
+
+                                <% if (candidate.phoneProudGrade == "C") { %>                                   
+                                <% }  else  { %>
+                                    <option value="C">C</option>
+                                <% } %>
+
+                                <% if (candidate.phoneProudGrade == "D") { %>
+                                <% }  else  { %>
+                                    <option value="D">D</option>
+                                <% } %>
+                                
+                                <% if (candidate.phoneProudGrade == "F") { %>
+                                <% }  else  { %>
+                                    <option value="F">F</option>
+                                <% } %>
+
+                            </select>
+                        </div>
+
+                        <div class="promise_item">
+                            <label for="phone_stronger">We Are Stronger</label>
+                            <%if (candidate.phoneStronger){%>
+                                <textarea type="text" rows="5" name="phone_stronger"><%=candidate.phoneStronger%></textarea>
+                            <%} else {%>
+                                <textarea type="text" rows="5" name="phone_stronger" ></textarea>
+                            <%}%>
+                            <label for="phone_stronger_grade">We Are Stronger Grade</label>
+                            <select name="phone_stronger_grade" id="phone_stronger_grade">
+
+                                <% if (candidate.phoneStrongerGrade) { %>
+                                    <option value=<%=candidate.phoneStrongerGrade%>><%=candidate.phoneStrongerGrade%></option>
+                                <% } else { %>
+                                    <option value=""></option>
+                                <% } %>
+
+                                <% if (candidate.phoneStrongerGrade == "A") { %>
+                                <% }  else  { %>
+                                    <option value="A">A</option>
+                                <% } %>
+
+                                <% if (candidate.phoneStrongerGrade == "B") { %>
+                                <% }  else  { %>
+                                    <option value="B">B</option>
+                                <% } %>
+
+                                <% if (candidate.phoneStrongerGrade == "C") { %>                                   
+                                <% }  else  { %>
+                                    <option value="C">C</option>
+                                <% } %>
+
+                                <% if (candidate.phoneStrongerGrade == "D") { %>
+                                <% }  else  { %>
+                                    <option value="D">D</option>
+                                <% } %>
+                                
+                                <% if (candidate.phoneStrongerGrade == "F") { %>
+                                <% }  else  { %>
+                                    <option value="F">F</option>
+                                <% } %>
+
+                            </select>
+                        </div>
+
+                        <div class="form_item">
+                            <button id=<%=candidate._id%> class="form_submit">Update Phone Info</button>
+                        </div>
+                    
+                    <!-- face to face interview     -->
+
+                    </form>
+
+                    <form action="/user/home/f2fInterview/<%=candidate._id%>" method="POST" class="f2f_interview_form">
+                        <div class="form_title">
+                            <h1>F2F Interview</h1>
+                        </div>
+
+                        <div class="promise_item">
+                            <label for="f2f_valued">We Are Valued</label>
+                            <%if (candidate.f2fValued){%>
+                                <textarea type="text" rows="5" name="f2f_valued"><%=candidate.f2fValued%></textarea>
+                            <%} else {%>
+                                <textarea type="text" rows="5" name="f2f_valued" ></textarea>
+                            <%}%>
+                            <label for="f2f_valued_grade">We Are Valued Grade</label>
+                            <select name="f2f_valued_grade" id="f2f_valued_grade">
+
+                                <% if (candidate.f2fValuedGrade) { %>
+                                    <option value=<%=candidate.f2fValuedGrade%>><%=candidate.f2fValuedGrade%></option>
+                                <% } else { %>
+                                    <option value=""></option>
+                                <% } %>
+
+                                <% if (candidate.f2fValuedGrade == "A") { %>
+                                <% }  else  { %>
+                                    <option value="A">A</option>
+                                <% } %>
+
+                                <% if (candidate.f2fValuedGrade == "B") { %>
+                                <% }  else  { %>
+                                    <option value="B">B</option>
+                                <% } %>
+
+                                <% if (candidate.f2fValuedGrade == "C") { %>                                   
+                                <% }  else  { %>
+                                    <option value="C">C</option>
+                                <% } %>
+
+                                <% if (candidate.f2fValuedGrade == "D") { %>
+                                <% }  else  { %>
+                                    <option value="D">D</option>
+                                <% } %>
+                                
+                                <% if (candidate.f2fValuedGrade == "F") { %>
+                                <% }  else  { %>
+                                    <option value="F">F</option>
+                                <% } %>
+
+                            </select>
+                        </div>
+
+                        <div class="promise_item">
+                            <label for="f2f_one">We Are One</label>
+                            <%if (candidate.f2fOne){%>
+                                <textarea type="text" rows="5" name="f2f_one"><%=candidate.f2fOne%></textarea>
+                            <%} else {%>
+                                <textarea type="text" rows="5" name="f2f_one" ></textarea>
+                            <%}%>
+                            <label for="f2f_one_grade">We Are One Grade</label>
+                            <select name="f2f_one_grade" id="f2f_one_grade">
+
+                                <% if (candidate.f2fOneGrade) { %>
+                                    <option value=<%=candidate.f2fOneGrade%>><%=candidate.f2fOneGrade%></option>
+                                <% } else { %>
+                                    <option value=""></option>
+                                <% } %>
+
+                                <% if (candidate.f2fOneGrade == "A") { %>
+                                <% }  else  { %>
+                                    <option value="A">A</option>
+                                <% } %>
+
+                                <% if (candidate.f2fOneGrade == "B") { %>
+                                <% }  else  { %>
+                                    <option value="B">B</option>
+                                <% } %>
+
+                                <% if (candidate.f2fOneGrade == "C") { %>                                   
+                                <% }  else  { %>
+                                    <option value="C">C</option>
+                                <% } %>
+
+                                <% if (candidate.f2fOneGrade == "D") { %>
+                                <% }  else  { %>
+                                    <option value="D">D</option>
+                                <% } %>
+                                
+                                <% if (candidate.f2fOneGrade == "F") { %>
+                                <% }  else  { %>
+                                    <option value="F">F</option>
+                                <% } %>
+
+                            </select>
+                        </div>
+
+                        <div class="promise_item">
+                            <label for="f2f_excellent">We Are Excellent</label>
+                            <%if (candidate.f2fExcellent){%>
+                                <textarea type="text" rows="5" name="f2f_excellent"><%=candidate.f2fExcellent%></textarea>
+                            <%} else {%>
+                                <textarea type="text" rows="5" name="f2f_excellent" ></textarea>
+                            <%}%>
+                            <label for="f2f_excellent_grade">We Are Excellent Grade</label>
+                            <select name="f2f_excellent_grade" id="f2f_excellent_grade">
+
+                                <% if (candidate.f2fExcellentGrade) { %>
+                                    <option value=<%=candidate.f2fExcellentGrade%>><%=candidate.f2fExcellentGrade%></option>
+                                <% } else { %>
+                                    <option value=""></option>
+                                <% } %>
+
+                                <% if (candidate.f2fExcellentGrade == "A") { %>
+                                <% }  else  { %>
+                                    <option value="A">A</option>
+                                <% } %>
+
+                                <% if (candidate.f2fExcellentGrade == "B") { %>
+                                <% }  else  { %>
+                                    <option value="B">B</option>
+                                <% } %>
+
+                                <% if (candidate.f2fExcellentGrade == "C") { %>                                   
+                                <% }  else  { %>
+                                    <option value="C">C</option>
+                                <% } %>
+
+                                <% if (candidate.f2fExcellentGrade == "D") { %>
+                                <% }  else  { %>
+                                    <option value="D">D</option>
+                                <% } %>
+                                
+                                <% if (candidate.f2fExcellentGrade == "F") { %>
+                                <% }  else  { %>
+                                    <option value="F">F</option>
+                                <% } %>
+
+                            </select>
+                        </div>
+
+
+                        <div class="promise_item">
+                            <label for="f2f_proud">We Are Proud</label>
+                            <%if (candidate.f2fProud){%>
+                                <textarea type="text" rows="5" name="f2f_proud"><%=candidate.f2fProud%></textarea>
+                            <%} else {%>
+                                <textarea type="text" rows="5" name="f2f_proud" ></textarea>
+                            <%}%>
+                            <label for="f2f_proud_grade">We Are Proud Grade</label>
+                            <select name="f2f_proud_grade" id="f2f_proud_grade">
+
+                                <% if (candidate.f2fProudGrade) { %>
+                                    <option value=<%=candidate.f2fProudGrade%>><%=candidate.f2fProudGrade%></option>
+                                <% } else { %>
+                                    <option value=""></option>
+                                <% } %>
+
+                                <% if (candidate.f2fProudGrade == "A") { %>
+                                <% }  else  { %>
+                                    <option value="A">A</option>
+                                <% } %>
+
+                                <% if (candidate.f2fProudGrade == "B") { %>
+                                <% }  else  { %>
+                                    <option value="B">B</option>
+                                <% } %>
+
+                                <% if (candidate.f2fProudGrade == "C") { %>                                   
+                                <% }  else  { %>
+                                    <option value="C">C</option>
+                                <% } %>
+
+                                <% if (candidate.f2fProudGrade == "D") { %>
+                                <% }  else  { %>
+                                    <option value="D">D</option>
+                                <% } %>
+                                
+                                <% if (candidate.f2fProudGrade == "F") { %>
+                                <% }  else  { %>
+                                    <option value="F">F</option>
+                                <% } %>
+
+                            </select>
+                        </div>
+
+                        <div class="promise_item">
+                            <label for="f2f_stronger">We Are Stronger</label>
+                            <%if (candidate.f2fStronger){%>
+                                <textarea type="text" rows="5" name="f2f_stronger"><%=candidate.f2fStronger%></textarea>
+                            <%} else {%>
+                                <textarea type="text" rows="5" name="f2f_stronger" ></textarea>
+                            <%}%>
+                            <label for="f2f_stronger_grade">We Are Stronger Grade</label>
+                            <select name="f2f_stronger_grade" id="f2f_stronger_grade">
+
+                                <% if (candidate.f2fStrongerGrade) { %>
+                                    <option value=<%=candidate.f2fStrongerGrade%>><%=candidate.f2fStrongerGrade%></option>
+                                <% } else { %>
+                                    <option value=""></option>
+                                <% } %>
+
+                                <% if (candidate.f2fStrongerGrade == "A") { %>
+                                <% }  else  { %>
+                                    <option value="A">A</option>
+                                <% } %>
+
+                                <% if (candidate.f2fStrongerGrade == "B") { %>
+                                <% }  else  { %>
+                                    <option value="B">B</option>
+                                <% } %>
+
+                                <% if (candidate.f2fStrongerGrade == "C") { %>                                   
+                                <% }  else  { %>
+                                    <option value="C">C</option>
+                                <% } %>
+
+                                <% if (candidate.f2fStrongerGrade == "D") { %>
+                                <% }  else  { %>
+                                    <option value="D">D</option>
+                                <% } %>
+                                
+                                <% if (candidate.f2fStrongerGrade == "F") { %>
+                                <% }  else  { %>
+                                    <option value="F">F</option>
+                                <% } %>
+
+                            </select>
+                        </div>
+
+                        <div class="form_item">
+                            <button id=<%=candidate._id%>class="form_submit">Update F2F Info</button>
+                        </div>
+                        
+                    </form>
+
+
+                    <!-- final interview -->
+
+                
+
+                    <form action="/user/home/finalInterview/<%=candidate._id%>" method="POST" class="final_interview_form">
+                        <div class="form_title">
+                            <h1>Final Interview</h1>
+                        </div>
+
+                        <div class="promise_item">
+                            <label for="final_valued">We Are Valued</label>
+                            <%if (candidate.finalValued){%>
+                                <textarea type="text" rows="5" name="final_valued"><%=candidate.finalValued%></textarea>
+                            <%} else {%>
+                                <textarea type="text" rows="5" name="final_valued" ></textarea>
+                            <%}%>
+                            <label for="final_valued_grade">We Are Valued Grade</label>
+                            <select name="final_valued_grade" id="final_valued_grade">
+
+                                <% if (candidate.finalValuedGrade) { %>
+                                    <option value=<%=candidate.finalValuedGrade%>><%=candidate.finalValuedGrade%></option>
+                                <% } else { %>
+                                    <option value=""></option>
+                                <% } %>
+
+                                <% if (candidate.finalValuedGrade == "A") { %>
+                                <% }  else  { %>
+                                    <option value="A">A</option>
+                                <% } %>
+
+                                <% if (candidate.finalValuedGrade == "B") { %>
+                                <% }  else  { %>
+                                    <option value="B">B</option>
+                                <% } %>
+
+                                <% if (candidate.finalValuedGrade == "C") { %>                                   
+                                <% }  else  { %>
+                                    <option value="C">C</option>
+                                <% } %>
+
+                                <% if (candidate.finalValuedGrade == "D") { %>
+                                <% }  else  { %>
+                                    <option value="D">D</option>
+                                <% } %>
+                                
+                                <% if (candidate.finalValuedGrade == "F") { %>
+                                <% }  else  { %>
+                                    <option value="F">F</option>
+                                <% } %>
+
+                            </select>
+                        </div>
+
+                        <div class="promise_item">
+                            <label for="final_one">We Are One</label>
+                            <%if (candidate.finalOne){%>
+                                <textarea type="text" rows="5" name="final_one"><%=candidate.finalOne%></textarea>
+                            <%} else {%>
+                                <textarea type="text" rows="5" name="final_one" ></textarea>
+                            <%}%>
+                            <label for="final_one_grade">We Are One Grade</label>
+                            <select name="final_one_grade" id="final_one_grade">
+
+                                <% if (candidate.finalOneGrade) { %>
+                                    <option value=<%=candidate.finalOneGrade%>><%=candidate.finalOneGrade%></option>
+                                <% } else { %>
+                                    <option value=""></option>
+                                <% } %>
+
+                                <% if (candidate.finalOneGrade == "A") { %>
+                                <% }  else  { %>
+                                    <option value="A">A</option>
+                                <% } %>
+
+                                <% if (candidate.finalOneGrade == "B") { %>
+                                <% }  else  { %>
+                                    <option value="B">B</option>
+                                <% } %>
+
+                                <% if (candidate.finalOneGrade == "C") { %>                                   
+                                <% }  else  { %>
+                                    <option value="C">C</option>
+                                <% } %>
+
+                                <% if (candidate.finalOneGrade == "D") { %>
+                                <% }  else  { %>
+                                    <option value="D">D</option>
+                                <% } %>
+                                
+                                <% if (candidate.finalOneGrade == "F") { %>
+                                <% }  else  { %>
+                                    <option value="F">F</option>
+                                <% } %>
+
+                            </select>
+                        </div>
+
+                        <div class="promise_item">
+                            <label for="final_excellent">We Are Excellent</label>
+                            <%if (candidate.finalExcellent){%>
+                                <textarea type="text" rows="5" name="final_excellent"><%=candidate.finalExcellent%></textarea>
+                            <%} else {%>
+                                <textarea type="text" rows="5" name="final_excellent" ></textarea>
+                            <%}%>
+                            <label for="final_excellent_grade">We Are Excellent Grade</label>
+                            <select name="final_excellent_grade" id="final_excellent_grade">
+
+                                <% if (candidate.finalExcellentGrade) { %>
+                                    <option value=<%=candidate.finalExcellentGrade%>><%=candidate.finalExcellentGrade%></option>
+                                <% } else { %>
+                                    <option value=""></option>
+                                <% } %>
+
+                                <% if (candidate.finalExcellentGrade == "A") { %>
+                                <% }  else  { %>
+                                    <option value="A">A</option>
+                                <% } %>
+
+                                <% if (candidate.finalExcellentGrade == "B") { %>
+                                <% }  else  { %>
+                                    <option value="B">B</option>
+                                <% } %>
+
+                                <% if (candidate.finalExcellentGrade == "C") { %>                                   
+                                <% }  else  { %>
+                                    <option value="C">C</option>
+                                <% } %>
+
+                                <% if (candidate.finalExcellentGrade == "D") { %>
+                                <% }  else  { %>
+                                    <option value="D">D</option>
+                                <% } %>
+                                
+                                <% if (candidate.finalExcellentGrade == "F") { %>
+                                <% }  else  { %>
+                                    <option value="F">F</option>
+                                <% } %>
+
+                            </select>
+                        </div>
+
+
+                        <div class="promise_item">
+                            <label for="final_proud">We Are Proud</label>
+                            <%if (candidate.finalProud){%>
+                                <textarea type="text" rows="5" name="final_proud"><%=candidate.finalProud%></textarea>
+                            <%} else {%>
+                                <textarea type="text" rows="5" name="final_proud" ></textarea>
+                            <%}%>
+                            <label for="final_proud_grade">We Are Proud Grade</label>
+                            <select name="final_proud_grade" id="final_proud_grade">
+
+                                <% if (candidate.finalProudGrade) { %>
+                                    <option value=<%=candidate.finalProudGrade%>><%=candidate.finalProudGrade%></option>
+                                <% } else { %>
+                                    <option value=""></option>
+                                <% } %>
+
+                                <% if (candidate.finalProudGrade == "A") { %>
+                                <% }  else  { %>
+                                    <option value="A">A</option>
+                                <% } %>
+
+                                <% if (candidate.finalProudGrade == "B") { %>
+                                <% }  else  { %>
+                                    <option value="B">B</option>
+                                <% } %>
+
+                                <% if (candidate.finalProudGrade == "C") { %>                                   
+                                <% }  else  { %>
+                                    <option value="C">C</option>
+                                <% } %>
+
+                                <% if (candidate.finalProudGrade == "D") { %>
+                                <% }  else  { %>
+                                    <option value="D">D</option>
+                                <% } %>
+                                
+                                <% if (candidate.finalProudGrade == "F") { %>
+                                <% }  else  { %>
+                                    <option value="F">F</option>
+                                <% } %>
+
+                            </select>
+                        </div>
+
+                        <div class="promise_item">
+                            <label for="final_stronger">We Are Stronger</label>
+                            <%if (candidate.finalStronger){%>
+                                <textarea type="text" rows="5" name="final_stronger"><%=candidate.finalStronger%></textarea>
+                            <%} else {%>
+                                <textarea type="text" rows="5" name="final_stronger" ></textarea>
+                            <%}%>
+                            <label for="final_stronger_grade">We Are Stronger Grade</label>
+                            <select name="final_stronger_grade" id="final_stronger_grade">
+
+                                <% if (candidate.finalStrongerGrade) { %>
+                                    <option value=<%=candidate.finalStrongerGrade%>><%=candidate.finalStrongerGrade%></option>
+                                <% } else { %>
+                                    <option value=""></option>
+                                <% } %>
+
+                                <% if (candidate.finalStrongerGrade == "A") { %>
+                                <% }  else  { %>
+                                    <option value="A">A</option>
+                                <% } %>
+
+                                <% if (candidate.finalStrongerGrade == "B") { %>
+                                <% }  else  { %>
+                                    <option value="B">B</option>
+                                <% } %>
+
+                                <% if (candidate.finalStrongerGrade == "C") { %>                                   
+                                <% }  else  { %>
+                                    <option value="C">C</option>
+                                <% } %>
+
+                                <% if (candidate.finalStrongerGrade == "D") { %>
+                                <% }  else  { %>
+                                    <option value="D">D</option>
+                                <% } %>
+                                
+                                <% if (candidate.finalStrongerGrade == "F") { %>
+                                <% }  else  { %>
+                                    <option value="F">F</option>
+                                <% } %>
+
+                            </select>
+                        </div>
+
+                        <div class="form_item">
+                            <button id=<%=candidate._id%>class="form_submit">Update Final Info</button>
+                        </div>
+                        
+                    </form>
+
+                    <!-- hire and reject buttons -->
+                    <div class="hire_and_reject_container shadow_card">
+                        <div class="form_title">
+                            <h1>Hire or Reject</h1>
+                        </div>
+                        <div class="hire_and_reject_buttons">
+                            <button id='hire_button' onclick="toggleHireAndReject(this)">Hire</button>
+                            <button id="reject_button" onclick="toggleHireAndReject(this)">Reject</button>
+                        </div>  
+                        <div id="final_hire" class="final_hire_and_reject">
+                            <div class="form_title">
+                                <h1>Are you sure you want to <span>hire</span> <%=candidate.firstName%> <%=candidate.lastName%>?</h1>
+                            </div>
+                            <form action="">
+                                <button id=<%=candidate._id%> onclick="hireCandidate(this)">Yes</button>
+                                <button type='button' id="cancel_button" onclick="toggleHireAndReject(this)">Cancel</button>
+                            </form>
+                        </div>
+                        <div id="final_reject" class="final_hire_and_reject">
+                            <div class="form_title">
+                                <h1>Are you sure you want to <span>reject</span> <%=candidate.firstName%> <%=candidate.lastName%>?</h1>
+                            </div>
+                            <form action="">
+                                <button id=<%=candidate._id%> onclick="rejectCandidate(this)">Yes</button>
+                                <button type='button' id="cancel_button" onclick="toggleHireAndReject(this)">Cancel</button>
+                            </form>
+                        </div>
+                    </div>
+
+
+
+                    <!-- reject candidate final submit -->
+
+
+
+                </div>
+            </div>
+        <%}%>
+    <% }) %>
+</section>

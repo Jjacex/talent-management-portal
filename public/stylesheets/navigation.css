@@ -1,0 +1,27 @@
+#nav_container{
+    display: flex;
+    flex-direction: row;
+    height:50px;
+}
+
+#nav_icon_container{
+    width:50px;
+    font-size: 0.8em;
+}
+
+#nav_title{
+    color:#E51636;
+    flex-grow: 1;
+    font-family: 'Arsenal', sans-serif;
+    font-size:0.8rem;
+}
+
+#nav_dropdown{
+    display:none;
+    flex-direction: column;
+}
+
+.nav_dropdown_item{
+    padding:10px;
+    font-size: 1.25rem;
+}

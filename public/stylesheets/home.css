@@ -1,0 +1,272 @@
+.square_button{
+    margin:10px;
+    padding: 10px;
+    flex-grow: 1;
+    width:50%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:none;
+    background-color: white;
+    font-family: 'Arsenal', sans-serif;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+.square_button_active{
+    border-bottom: #e51636 solid 1px;
+    border-left: #e51636 solid 1px;
+    box-shadow: 0 1px 5px black;
+    color:white;
+    background-color: #e51636;
+}
+
+#main_button_container{
+    display: flex;
+    flex-direction: column;
+}
+
+.button_row{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#add_candidate_container{
+    display: none;
+}
+
+#add_candidate_container form {
+    width:100%;
+    padding:10px;
+}
+
+#add_candidate_container button{
+    width:100%;
+    color: white;
+    background-color: #E51636;
+    border-radius: 10px;
+    font-family: 'Arima Madurai', cursive;
+    font-size: 1rem;
+    margin: 10px;
+}
+
+.form_title{
+    display: flex;
+    /* margin:10px; */
+    font-family: 'Arsenal', sans-serif;
+    color:#E51636;
+    justify-content: left;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.form_item{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    margin: 10px;
+}
+
+#view_candidates_container{
+    display: none;
+    flex-direction: column;
+
+}
+
+.candidate_container{
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+    margin:10px;
+}
+
+/* .candidate_container:hover{
+    box-shadow: 0 1px 10px black;
+} */
+
+.candidate_detail{
+    font-family: 'Arima Madurai', cursive;
+    font-size: 0.8rem;
+    margin: 5px 0px 0px 0px;
+    padding: 0px;
+}
+
+.candidate_title{
+    font-family: 'Arsenal', sans-serif;
+    color:#e51636;
+    font-size: 1.5rem;
+}
+
+.candidate_button_container{
+    display: flex;
+    align-items: right;
+    justify-content: right;
+    flex-grow: 1;
+}
+
+.candidate_button_container button{
+    font-size: 0.8rem;
+    background-color: white;
+    color: #e51636;
+    font-family: 'Arima Madurai', cursive;
+    margin: 5px;
+    border: none;
+    border-bottom: solid #e51636 1px;
+}
+
+.candidate_button_container button:hover{
+    color: white;
+    background-color: #e51636;
+}
+
+.basic_info_container{
+    display: flex;
+    flex-direction: row;
+}
+
+.more_info_container{
+    display:none;
+    flex-direction: column;
+}
+
+.more_info_container form{
+    flex-grow:1;
+    margin:10px;
+    padding:10px;
+}
+
+.more_info_container textarea{
+    width: 100%
+}
+
+.more_info_container button{
+    background-color: white;
+    color: #E51636;
+    border-radius: 10px;
+    font-family: 'Arima Madurai', cursive;
+    font-size: 1rem;
+    margin: 10px;
+    border:none;
+    box-shadow: 0 1px 5px black;
+    border-bottom: #e51636 solid 1px;
+}
+
+.promise_item{
+    border-bottom: dashed #e51636 1px;
+    padding: 10px
+}
+
+.hire_and_reject_container{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center;
+}
+    
+
+.hire_and_reject_buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+    margin: 5px;
+}
+
+.hire_and_reject_buttons button{
+    background-color: white;
+    color: #E51636;
+    border-radius: 10px;
+    font-family: 'Arima Madurai', cursive;
+    font-size: 1rem;
+    margin: 10px;
+    border:none;
+    box-shadow: 0 1px 5px black;
+    border-bottom: #e51636 solid 1px;
+}
+
+
+#final_hire{
+    display:none;
+}
+
+#final_reject{
+    display:none;
+}
+
+.final_hire_and_reject button{
+    background-color: white;
+    color: #E51636;
+    border-radius: 10px;
+    font-family: 'Arima Madurai', cursive;
+    font-size: 1rem;
+    margin: 10px;
+    border:none;
+    box-shadow: 0 1px 5px black;
+    border-bottom: #e51636 solid 1px;
+}
+
+.final_hire_and_reject form{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.final_hire_and_reject h1{
+    color:black;
+    font-size: 1rem;
+    font-family: 'Arima Madurai', cursive;
+}
+
+.final_hire_and_reject{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.final_hire_and_reject span{
+    color:#e51636;
+    font-size: 1.2rem;
+}
+
+.interview_toggle_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arsenal', sans-serif;
+    padding: 10px;
+}
+
+.interview_toggle_container h1{
+    display: flex;
+    width: 100%;
+    padding: 10px;
+}
+
+.interview_toggle_container h1:hover{
+    background-color: #e51636;
+    color:white;
+}
+
+.phone_interview_form{
+    display:none;
+    flex-direction: column;
+}
+
+.f2f_interview_form{
+    display: none;
+    flex-direction: column;
+}
+
+.final_interview_form{
+    display: none;
+    flex-direction: column;
+}

@@ -1,0 +1,33 @@
+html{
+
+}
+
+body{
+    margin:0;
+    box-sizing: border-box;
+}
+
+h1{
+    margin:0px;
+}
+
+#main_container{
+    max-width: 500px;
+    min-width: 300px;
+    margin: auto;
+}
+
+.flex_centered{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shadow_card{
+    border-radius: 10px;
+    margin:10px;
+    box-shadow: 0 1px 5px black;
+    border-bottom: #e51636 solid 1px;
+    /* border-left: #e51636 solid 1px; */
+}
+

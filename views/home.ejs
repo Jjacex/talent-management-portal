@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- styles -->
+    <%- include('partials/styles.ejs') %>
+    <title>Home</title>
+
+</head>
+<body>
+
+    <div id="main_container">
+
+        <!-- navigation -->
+        <%- include('partials/navigation.ejs') %>
+
+        <!-- main button section -->
+        <%- include('partials/home_main_buttons.ejs') %>
+        
+        
+        <!-- add candidate -->
+        <%- include('partials/addCandidate.ejs') %>
+        
+        <!-- view candidates -->
+        <%- include('partials/candidate_info.ejs') %>
+
+        <section id="growth_tracker_container">
+            <% candidateList.forEach(candidate => { %>
+                <% if (candidate.status = 'hired') { %>
+                    <section class="growth_tracker_container shadow_card">
+                            <div class="employee_name">
+                                <h1><%= candidate.firstName%> <%= candidate.lastName %></h1>
+                            </div>
+                            <div class="employee_info">
+                                <p class="employee_position"><%= candidate.position %></p>
+                                    <div class="employee_toggle">
+                                        <i class="fa-solid fa-arrow-up" onclick="toggleSaveChangesUp(this)"></i>
+                                        <i class="fa-solid fa-arrow-down" onclick="toggleSaveChangesDown(this)"></i>
+                                    </div>
+                            </div>
+                            <div class="save_changes" >
+                                <button type="button" onclick="modifyEmployeeStatus(this)" id=<%=candidate._id%>>Save Changes</button>
+                            </div>
+                            <div class="final_termination">
+                                <div class="termination_title">
+                                    <h1>Are you sure you want to <span>terminate</span> <%= candidate.firstName %> <%= candidate.lastName %></h1>
+                                </div>
+                                <div class="termination_buttons">
+                                    <button class="termination_button" type="button" name="<%=candidate._id%>" onclick="finalTermination(this)">Yes</button>
+                                    <button class="termination_button" type="button" onclick="finalTermination(this)">Cancel</button>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                <% } %>
+            <%})%>
+        </section>
+
+                
+        
+    </div>
+    
+
+    <script src="../public/index.js"></script>
+    <script src="../public/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+#growth_tracker_container{
+    display:none;
+    flex-direction: column;
+    margin: 0px;
+}
+
+.growth_tracker_container  {
+    font-family: 'Arima Madurai', cursive;
+}
+
+.employee_name{
+    background-color: #E5173F;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-family: 'Arsenal', sans-serif;
+    padding: 10px;
+}
+
+.employee_info{
+    display: flex;
+    flex-direction: row;
+}
+
+.employee_info select{
+    display: none;
+}
+
+.employee_position{
+    width:66%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 10px;
+}
+
+.employee_toggle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-grow: 1;
+}
+
+.employee_info i {
+    display:flex;
+    flex-direction: row;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    height:100%;
+}
+
+.employee_info i:hover{
+    color:white;
+    background-color: #E5173F;
+    box-shadow: 0 1px 5px black;
+    border-bottom: #e51636 solid 1px;
+}
+
+.save_changes{
+    display: none;
+    border: none;
+}
+
+.save_changes button{
+    background-color: white;
+    color: #E5173F;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display:flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-family: 'Arsenal', sans-serif;
+    padding: 10px;
+    border: none;
+}
+
+.save_changes button:hover{
+    background-color: #E5173F;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 1px 5px black;
+    border-bottom: #e51636 solid 1px;
+}
+
+#new_position{
+    display:none;
+}
+
+.final_termination{
+    display: none;
+    flex-direction: column;
+    font-family: 'Arima Madurai', cursive;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.termination_title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+.termination_buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 10px;
+}
+
+.final_termination span{
+    color:#e51636;
+    font-size: 1.2rem;
+}
+
+.termination_button{
+    background-color: white;
+    color: #E51636;
+    border-radius: 10px;
+    font-family: 'Arima Madurai', cursive;
+    font-size: 1rem;
+    margin: 10px;
+    border:none;
+    box-shadow: 0 1px 5px black;
+    border-bottom: #e51636 solid 1px;
+}
+
+.termination_button:hover{
+    color: white;
+    background-color: #E51636;
+}
+
+
