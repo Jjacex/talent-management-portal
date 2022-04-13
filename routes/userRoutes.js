@@ -4,7 +4,7 @@ const passport = require('passport')
 const User = require('../models/userModel')
 const Candidate = require('../models/candidateModel')
 const nodemailer = require('nodemailer')
-const errorHandler = require('../../mern-tutorial/backend/middleware/errorMiddleware')
+const errorHandler = require('../middleware/errorMiddleware')
 
 // GET Register Page
 // router.get('/register', (req, res) => {
