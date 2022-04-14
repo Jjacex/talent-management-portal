@@ -120,7 +120,7 @@ const hireCandidate = async (e) => {
     if (NODE_ENV == 'development'){
         const url = 'http://localhost:5000/user/home/hire/' + String(e.id)
     } else {
-        const url = 'https://frozen-atoll-38990.herokuapp.com/user/home/hire' + String(e.id)
+        const url = 'https://frozen-atoll-38990.herokuapp.com/user/home/hire/' + String(e.id)
     }
     try{
         const res = await fetch(url, {method: "PUT"})
