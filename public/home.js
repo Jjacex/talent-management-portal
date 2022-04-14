@@ -116,6 +116,8 @@ const toggleHireAndReject = (e) => {
 const hireCandidate = async (e) => {
     const body = document.getElementsByTagName('body')[0]
     const NODE_ENV = body.getAttribute('id')
+    const candidateInfoContainer = e.parentElement.parentElement.parentElement.previousElementSibling.previousElementSibling.previousElementSibling
+    candidateInfoContainer.remove()
     switch(NODE_ENV){
         case 'development':
             try{
