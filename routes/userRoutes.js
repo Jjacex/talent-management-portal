@@ -227,7 +227,6 @@ router.put('/home/reject/:id', async (req, res) => {
     const candidate = await Candidate.findByIdAndUpdate(req.params.id, {
         status: 'rejected'
     })
-    const testAccount = await nodemailer.createTestAccount()
     const transporter = nodemailer.createTransport({
         host: 'smtp-mail.outlook.com',
         auth: {
