@@ -117,7 +117,6 @@ const hireCandidate = async (e) => {
     const body = document.getElementsByTagName('body')[0]
     const NODE_ENV = body.getAttribute('id')
     const candidateInfo = e.parentElement.parentElement.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.parentElement.parentElement
-    candidateInfo.remove()
     console.log(candidateInfo)
     switch(NODE_ENV){
         case 'development':
@@ -125,6 +124,7 @@ const hireCandidate = async (e) => {
                 const url = 'http://localhost:5000/user/home/hire/' + String(e.id)
                 const res = await fetch(url, {method: "PUT"})
                 console.log(res)
+                candidateInfo.remove()
             } catch (err) {
                 console.log(err)
             }
@@ -146,12 +146,12 @@ const rejectCandidate = async (e) => {
     const body = document.getElementsByTagName('body')[0]
     const NODE_ENV = body.getAttribute('id')
     const candidateInfo = e.parentElement.parentElement.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.parentElement.parentElement
-    candidateInfo.remove()
     switch(NODE_ENV){
         case 'development':
             const url = 'http://localhost:5000/user/home/reject/' + String(e.id)
             try{
                 const res = await fetch(url, {method: "PUT"})
+                candidateInfo.remove()
                 console.log(res)
             } catch (err) {
                 console.log(err)
