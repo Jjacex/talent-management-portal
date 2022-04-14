@@ -218,7 +218,7 @@ router.put('/home/hire/:id', async (req, res) => {
     })
     console.log("message sent: %s", info.messageId)
     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info))
-    res.status(200).json(candidate)
+    res.status(200).end()
 })
 
 // Reject Candidate
@@ -250,7 +250,7 @@ router.put('/home/reject/:id', async (req, res) => {
     })
     console.log("message sent: %s", info.messageId)
     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info))
-    res.status(200).json(candidate)
+    res.status(200).end()
 })
 
 
