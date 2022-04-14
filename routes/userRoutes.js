@@ -7,34 +7,34 @@ const nodemailer = require('nodemailer')
 const errorHandler = require('../middleware/errorMiddleware')
 
 // GET Register Page
-// router.get('/register', (req, res) => {
-//     if (req.user == undefined){
-//         res.render('register.ejs')
-//         return
-//     }
-//     res.redirect('/user/home')
-// })
+router.get('/register', (req, res) => {
+    if (req.user == undefined){
+        res.render('register.ejs')
+        return
+    }
+    res.redirect('/user/home')
+})
 
 // POST Create New User
-// router.post('/register', async (req, res) => {
-//     const {username, company, email, password, password2} = req.body
-//     // Checking if all fields are filled out
-//     if (!username || !company || !email || !password || !password2){
-//         throw new Error({message:"Please fill out all the form fields"})
-//     }
-//     // Checking if user already exists
-//     const userExists = await User.findOne({username:username})
-//     if (userExists !== null){
-//         throw new Error({message:"User already exists"})
-//     }
-//     const user = await User.create({
-//         username,
-//         company,
-//         email,
-//         password
-//     })
-//     res.redirect('/user/login')   
-// })
+router.post('/register', async (req, res) => {
+    const {username, company, email, password, password2} = req.body
+    // Checking if all fields are filled out
+    if (!username || !company || !email || !password || !password2){
+        throw new Error({message:"Please fill out all the form fields"})
+    }
+    // Checking if user already exists
+    const userExists = await User.findOne({username:username})
+    if (userExists !== null){
+        throw new Error({message:"User already exists"})
+    }
+    const user = await User.create({
+        username,
+        company,
+        email,
+        password
+    })
+    res.redirect('/user/login')   
+})
 
 // GET Login Page
 router.get('/login', (req, res) => {
@@ -55,7 +55,7 @@ router.post(
     '/login',
     passport.authenticate('local', {
         successRedirect: '/user/home',
-        failureRedirect: '/user/login',
+        failureRedirect: '/user/register',
     })
 )
 
@@ -256,7 +256,6 @@ router.put('/home/reject/:id', async (req, res) => {
 
 
 router.put('/home/updateStatus/:id/:newRole', async (req, res) => {
-
     switch (req.params.newRole){
         case "Terminate Employee":
             console.log('Terminating Employee')
