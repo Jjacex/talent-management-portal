@@ -242,7 +242,7 @@ router.put('/home/reject/:id', async (req, res) => {
     
     `
     const info = await transporter.sendMail({
-        from: 'ekkwjsmcnfd2dsdks@outlook.com',
+        from: process.env.EMAIL_USER,
         to: candidate.email,
         subject: req.user.company,
         text: req.user.comapny,
