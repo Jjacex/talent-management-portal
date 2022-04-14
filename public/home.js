@@ -116,7 +116,7 @@ const toggleHireAndReject = (e) => {
 }
 
 const hireCandidate = async (e) => {
-    const url = 'http://localhost:5000/user/home/hire/' + String(e.id)
+    const url = '/user/home/hire/' + String(e.id)
     try{
         const res = await fetch(url, {method: "PUT"})
         console.log(res)
