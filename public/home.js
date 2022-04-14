@@ -250,16 +250,31 @@ const modifyEmployeeStatus = async (e) => {
 const finalTermination = async (e) => {
     const newRole = e.parentElement.parentElement.previousElementSibling.previousElementSibling.children[0].textContent
     const keyword = e.textContent
+    const body = document.getElementsByTagName('body')[0]
+    const NODE_ENV = body.getAttribute('id')
     switch (keyword) {
         case 'Yes':
             e.parentElement.parentElement.parentElement.remove()
-            const url = 'http://localhost:5000/user/home/updateStatus/' + String(e.name) + '/' + newRole
-            try{
-                const res = await fetch(url, {method: "PUT"})
-                console.log(res)
-            } catch (err) {
-                console.log(err)
-            }
+            switch(NODE_ENV){
+                case 'development':
+                    const url = 'http://localhost:5000/user/home/updateStatus/' + String(e.name) + '/' + newRole
+                    try{
+                        const res = await fetch(url, {method: "PUT"})
+                        console.log(res)
+                    } catch (err) {
+                        console.log(err)
+                    }
+                    break
+                default:
+                    const productionURL = 'https://frozen-atoll-38990.herokuapp.com/user/home/updateStatus/' + String(e.name) + '/' + newRole
+                    try{
+                        const res = await fetch(productionURL, {method: "PUT"})
+                        console.log(res)
+                    } catch (err) {
+                        console.log(err)
+                    }
+                    break
+            } 
             break
         case 'Cancel':
             e.parentElement.parentElement.style.display = 'none'
