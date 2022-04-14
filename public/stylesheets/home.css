@@ -105,6 +105,8 @@
     display: flex;
     align-items: right;
     justify-content: right;
+    -webkit-align-items:right;
+    -webkit-justify-content:right;
     width:100%;
 }
 
