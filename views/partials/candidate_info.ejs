@@ -735,7 +735,7 @@
                                 <h1>Are you sure you want to <span>hire</span> <%=candidate.firstName%> <%=candidate.lastName%>?</h1>
                             </div>
                             <form action="">
-                                <button id=<%=candidate._id%> type='button' onclick="hireCandidate(this)">Yes</button>
+                                <button id=<%=candidate._id%> onclick="hireCandidate(this)">Yes</button>
                                 <button type='button' id="cancel_button" onclick="toggleHireAndReject(this)">Cancel</button>
                             </form>
                         </div>
