@@ -134,6 +134,7 @@ const hireCandidate = async (e) => {
                 const productionURL = 'https://frozen-atoll-38990.herokuapp.com/user/home/hire/' + String(e.id)
                 const res = await fetch(productionURL, {method: "PUT"})
                 console.log(res)
+                candidateInfo.remove()
             } catch (err) {
                 console.log(err)
             }
@@ -162,6 +163,7 @@ const rejectCandidate = async (e) => {
             try{
                 const res = await fetch(productionURL, {method: "PUT"})
                 console.log(res)
+                candidateInfo.remove()
             } catch (err) {
                 console.log(err)
             }
