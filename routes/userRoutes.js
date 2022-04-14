@@ -69,6 +69,7 @@ router.get('/home', (req, res) => {
         res.render('home.ejs', {
             user:req.user,
             candidateList:candidates,
+            NODE_ENV: process.env.NODE_ENV
         }) 
     }) 
 })

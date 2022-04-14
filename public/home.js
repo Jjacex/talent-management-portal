@@ -22,8 +22,6 @@ const toggleSquareButton = (e) => {
     forms.push(viewCandidatesContainer)
     forms.push(growthTrackerContainer)
 
-    console.log(forms)
-
     const deToggleForms = () => {
         for (x = 0; x < forms.length; x++) {
             forms[x].style.display = 'none'
@@ -116,7 +114,14 @@ const toggleHireAndReject = (e) => {
 }
 
 const hireCandidate = async (e) => {
-    const url = 'http://localhost:5000/user/home/hire/' + String(e.id)
+    const body = document.getElementsByTagName('body')[0]
+    const NODE_ENV = body.getAttribute('id')
+    console.log(NODE_ENV)
+    if (NODE_ENV == 'development'){
+        const url = 'http://localhost:5000/user/home/hire/' + String(e.id)
+    } else {
+        const url = 'https://frozen-atoll-38990.herokuapp.com/user/home/hire' + String(e.id)
+    }
     try{
         const res = await fetch(url, {method: "PUT"})
         console.log(res)
