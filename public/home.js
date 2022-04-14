@@ -116,6 +116,9 @@ const toggleHireAndReject = (e) => {
 const hireCandidate = async (e) => {
     const body = document.getElementsByTagName('body')[0]
     const NODE_ENV = body.getAttribute('id')
+    const candidateInfo = e.parentElement.parentElement.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.parentElement.parentElement
+    candidateInfo.remove()
+    console.log(candidateInfo)
     switch(NODE_ENV){
         case 'development':
             try{
@@ -142,6 +145,8 @@ const hireCandidate = async (e) => {
 const rejectCandidate = async (e) => {
     const body = document.getElementsByTagName('body')[0]
     const NODE_ENV = body.getAttribute('id')
+    const candidateInfo = e.parentElement.parentElement.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.parentElement.parentElement
+    candidateInfo.remove()
     switch(NODE_ENV){
         case 'development':
             const url = 'http://localhost:5000/user/home/reject/' + String(e.id)
