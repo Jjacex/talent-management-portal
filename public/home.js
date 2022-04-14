@@ -223,12 +223,26 @@ const modifyEmployeeStatus = async (e) => {
         const finalTerminationContainer = e.parentElement.nextElementSibling
         finalTerminationContainer.style.display = 'flex'
     } else {
-        const url = 'http://localhost:5000/user/home/updateStatus/' + String(e.id) + '/' + newRole
-        try{
-            const res = await fetch(url, {method: "PUT"})
-            console.log(res)
-        } catch (err) {
-            console.log(err)
+        const body = document.getElementsByTagName('body')[0]
+        const NODE_ENV = body.getAttribute('id')
+        switch(NODE_ENV){
+            case 'development':
+                try{
+                    const url = 'http://localhost:5000/user/home/updateStatus/' + String(e.id) + '/' + newRole
+                    const res = await fetch(url, {method: "PUT"})
+                    console.log(res)
+                } catch (err) {
+                    console.log(err)
+                }
+                break
+            default:
+                try{
+                    const productionURL = 'https://frozen-atoll-38990.herokuapp.com/user/home/updateStatus/' + String(e.id) + '/' + newRole
+                    const res = await fetch(productionURL, {method: "PUT"})
+                    console.log(res)
+                } catch (err) {
+                    console.log(err)
+                }
         }
     }  
 }
