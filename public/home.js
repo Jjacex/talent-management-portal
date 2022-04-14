@@ -117,6 +117,7 @@ const hireCandidate = async (e) => {
     const body = document.getElementsByTagName('body')[0]
     const NODE_ENV = body.getAttribute('id')
     console.log(NODE_ENV)
+    console.log(e.id)
     if (NODE_ENV == 'development'){
         const url = 'http://localhost:5000/user/home/hire/' + String(e.id)
     } else {
