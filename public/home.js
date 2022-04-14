@@ -116,8 +116,6 @@ const toggleHireAndReject = (e) => {
 const hireCandidate = async (e) => {
     const body = document.getElementsByTagName('body')[0]
     const NODE_ENV = body.getAttribute('id')
-    console.log(NODE_ENV)
-    console.log(e.id)
     switch(NODE_ENV){
         case 'development':
             try{
@@ -142,12 +140,27 @@ const hireCandidate = async (e) => {
 }
 
 const rejectCandidate = async (e) => {
-    const url = 'http://localhost:5000/user/home/reject/' + String(e.id)
-    try{
-        const res = await fetch(url, {method: "PUT"})
-        console.log(res)
-    } catch (err) {
-        console.log(err)
+    const body = document.getElementsByTagName('body')[0]
+    const NODE_ENV = body.getAttribute('id')
+    switch(NODE_ENV){
+        case 'development':
+            const url = 'http://localhost:5000/user/home/reject/' + String(e.id)
+            try{
+                const res = await fetch(url, {method: "PUT"})
+                console.log(res)
+            } catch (err) {
+                console.log(err)
+            }
+            break
+        default:
+            const productionURL = 'https://frozen-atoll-38990.herokuapp.com/user/home/reject/' + String(e.id)
+            try{
+                const res = await fetch(productionURL, {method: "PUT"})
+                console.log(res)
+            } catch (err) {
+                console.log(err)
+            }
+            break
     }
 }
 
